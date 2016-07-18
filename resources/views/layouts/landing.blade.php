@@ -1,306 +1,332 @@
 <!DOCTYPE html>
-<!--
-Landing page based on Pratt: http://blacktie.co/demo/pratt/
--->
 <html lang="en">
-<head>
+  <head>
     <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Adminlte-laravel - {{ trans('adminlte_lang::message.landingdescription') }} ">
-    <meta name="author" content="Sergi Tur Badenas - acacha.org">
-
-    <meta property="og:title" content="Adminlte-laravel" />
-    <meta property="og:type" content="website" />
-    <meta property="og:description" content="Adminlte-laravel - {{ trans('adminlte_lang::message.landingdescription') }}" />
-    <meta property="og:url" content="http://demo.adminlte.acacha.org/" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE.png" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE600x600.png" />
-    <meta property="og:image" content="http://demo.adminlte.acacha.org/img/AcachaAdminLTE600x314.png" />
-    <meta property="og:sitename" content="demo.adminlte.acacha.org" />
-    <meta property="og:url" content="http://demo.adminlte.acacha.org" />
-
-    <meta name="twitter:card" content="summary_large_image" />
-    <meta name="twitter:site" content="@acachawiki" />
-    <meta name="twitter:creator" content="@acacha1" />
-
-    <title>{{ trans('adminlte_lang::message.landingdescriptionpratt') }}</title>
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <meta name="csrf-token" content="{{ csrf_token() }}" />
+    <link rel="shortcut icon" href="{{asset('assets/ico/favicon.png')}}">
+    <title>School Project</title>
 
     <!-- Bootstrap core CSS -->
-    <link href="{{ asset('/css/bootstrap.css') }}" rel="stylesheet">
+    <link href="{{asset('assets/css/bootstrap.css')}}" rel="stylesheet">
+    <link href="{{asset('assets/css/font-awesome.min.css')}}" rel="stylesheet">
 
     <!-- Custom styles for this template -->
-    <link href="{{ asset('/css/main.css') }}" rel="stylesheet">
+    <link href="{{asset('assets/css/main.css')}}" rel="stylesheet">
 
-    <link href='http://fonts.googleapis.com/css?family=Lato:300,400,700,300italic,400italic' rel='stylesheet' type='text/css'>
-    <link href='http://fonts.googleapis.com/css?family=Raleway:400,300,700' rel='stylesheet' type='text/css'>
-
-    <script src="{{ asset('/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
-    <script src="{{ asset('/js/smoothscroll.js') }}"></script>
+      <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://code.jquery.com/jquery-1.12.1.min.js" integrity="sha256-I1nTg78tSrZev3kjvfdM5A5Ak/blglGzlaZANLPDl3I=" crossorigin="anonymous"></script>
+    <!-- <script src="jquery.numeric.min.js"></script> -->
 
 
-</head>
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.3.0/respond.min.js"></script>
+    <![endif]-->
+	<style>
+.backimg
+{
+background-image:url('assets/img/strip.jpg');
+-moz-background-size: cover;
+-webkit-background-size: cover;
+background-size: cover;
+background-position: top center !important;
+background-repeat: no-repeat !important;
+background-attachment: fixed;
+}
+</style>
 
-<body data-spy="scroll" data-offset="0" data-target="#navigation">
+  </head>
 
-<!-- Fixed navbar -->
-<div id="navigation" class="navbar navbar-default navbar-fixed-top">
-    <div class="container">
+  <body class="backimg" >
+  <body>
+
+    <!-- Fixed navbar -->
+    <div class="navbar navbar-inverse navbar-fixed-top">
+      <div class="container">
         <div class="navbar-header">
-            <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="#"><b>adminlte-laravel</b></a>
+          <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </button>
+          <a class="navbar-brand" href="{{ url ('/') }}">SCH<i class="fa fa-circle"></i><i class="fa fa-circle"></i>L PR<i class="fa fa-circle"></i>JECT</a>
         </div>
         <div class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="#home" class="smoothScroll">{{ trans('adminlte_lang::message.home') }}</a></li>
-                <li><a href="#desc" class="smoothScroll">{{ trans('adminlte_lang::message.description') }}</a></li>
-                <li><a href="#showcase" class="smoothScroll">{{ trans('adminlte_lang::message.showcase') }}</a></li>
-                <li><a href="#contact" class="smoothScroll">{{ trans('adminlte_lang::message.contact') }}</a></li>
-            </ul>
-            <ul class="nav navbar-nav navbar-right">
-                @if (Auth::guest())
-                    <li><a href="{{ url('/login') }}">{{ trans('adminlte_lang::message.login') }}</a></li>
-                    <li><a href="{{ url('/register') }}">{{ trans('adminlte_lang::message.register') }}</a></li>
-                @else
-                    <li><a href="/home">{{ Auth::user()->name }}</a></li>
-                @endif
-            </ul>
+          <ul class="nav navbar-nav navbar-right">
+            <li class="active"><a href="{{ url ('/') }}">HOME</a></li>
+            <li><a href="{{ url ('/login') }}">LOGIN</a></li>
+            <li><a href="{{ url ('/joinrequest') }}">REQUEST TO JOIN</a></li>
+          </ul>
+
         </div><!--/.nav-collapse -->
+      </div>
     </div>
-</div>
+
+    <div id="headerwrap">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-lg-8 col-lg-offset-2">
+                <h1>Interaction Between <b>Teachers, Parents</b> and <b> Students</b></h1>
+                 <h2>was never this easy before.</h2>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- headerwrap -->
 
 
-<section id="home" name="home"></section>
-<div id="headerwrap">
-    <div class="container">
+    <div class="container w">
         <div class="row centered">
-            <div class="col-lg-12">
-                <h1>Acacha <b><a href="https://github.com/acacha/adminlte-laravel">adminlte-laravel</a></b></h1>
-                <h3>A <a href="https://laravel.com/">Laravel</a> {{ trans('adminlte_lang::message.laravelpackage') }}
-                    scaffolding/boilerplate {{ trans('adminlte_lang::message.to') }} <a href="https://almsaeedstudio.com/preview">AdminLTE</a> {{ trans('adminlte_lang::message.templatewith') }}
-                    <a href="http://getbootstrap.com/">Bootstrap</a> 3.0 {{ trans('adminlte_lang::message.and') }} <a href="http://blacktie.co/demo/pratt/">Pratt</a> Landing page</h3>
-                <h3><a href="{{ url('/register') }}" class="btn btn-lg btn-success">{{ trans('adminlte_lang::message.gedstarted') }}</a></h3>
-            </div>
-            <div class="col-lg-2">
-                <h5>{{ trans('adminlte_lang::message.amazing') }}</h5>
-                <p>{{ trans('adminlte_lang::message.basedadminlte') }}</p>
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow1.png') }}">
-            </div>
-            <div class="col-lg-8">
-                <img class="img-responsive" src="{{ asset('/img/app-bg.png') }}" alt="">
-            </div>
-            <div class="col-lg-2">
-                <br>
-                <img class="hidden-xs hidden-sm hidden-md" src="{{ asset('/img/arrow2.png') }}">
-                <h5>{{ trans('adminlte_lang::message.awesomepackaged') }}</h5>
-                <p>... {{ trans('adminlte_lang::message.by') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a> {{ trans('adminlte_lang::message.at') }} <a href="http://acacha.org">acacha.org</a> {{ trans('adminlte_lang::message.readytouse') }}</p>
-            </div>
-        </div>
-    </div> <!--/ .container -->
-</div><!--/ #headerwrap -->
+            <br><br>
+            <div class="col-lg-4">
+                <i class="fa fa-heart"></i>
+                <h4>DESIGN</h4>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            </div><!-- col-lg-4 -->
 
+            <div class="col-lg-4">
+                <i class="fa fa-laptop"></i>
+                <h4>BOOTSTRAP</h4>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            </div><!-- col-lg-4 -->
 
-<section id="desc" name="desc"></section>
-<!-- INTRO WRAP -->
-<div id="intro">
-    <div class="container">
-        <div class="row centered">
-            <h1>{{ trans('adminlte_lang::message.designed') }}</h1>
-            <br>
-            <br>
             <div class="col-lg-4">
-                <img src="{{ asset('/img/intro01.png') }}" alt="">
-                <h3>{{ trans('adminlte_lang::message.community') }}</h3>
-                <p>{{ trans('adminlte_lang::message.see') }} <a href="https://github.com/acacha/adminlte-laravel">{{ trans('adminlte_lang::message.githubproject') }}</a>, {{ trans('adminlte_lang::message.post') }} <a href="https://github.com/acacha/adminlte-laravel/issues">{{ trans('adminlte_lang::message.issues') }}</a> {{ trans('adminlte_lang::message.and') }} <a href="https://github.com/acacha/adminlte-laravel/pulls">{{ trans('adminlte_lang::message.pullrequests') }}</a></p>
-            </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('/img/intro02.png') }}" alt="">
-                <h3>{{ trans('adminlte_lang::message.schedule') }}</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-            <div class="col-lg-4">
-                <img src="{{ asset('/img/intro03.png') }}" alt="">
-                <h3>{{ trans('adminlte_lang::message.monitoring') }}</h3>
-                <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
-            </div>
-        </div>
+                <i class="fa fa-trophy"></i>
+                <h4>SUPPORT</h4>
+                <p>There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even believable.</p>
+            </div><!-- col-lg-4 -->
+        </div><!-- row -->
         <br>
-        <hr>
-    </div> <!--/ .container -->
-</div><!--/ #introwrap -->
+        <br>
+    </div><!-- container -->
 
-<!-- FEATURES WRAP -->
-<div id="features">
-    <div class="container">
-        <div class="row">
-            <h1 class="centered">{{ trans('adminlte_lang::message.whatnew') }}</h1>
-            <br>
-            <br>
-            <div class="col-lg-6 centered">
-                <img class="centered" src="{{ asset('/img/mobile.png') }}" alt="">
-            </div>
 
-            <div class="col-lg-6">
-                <h3>{{ trans('adminlte_lang::message.features') }}</h3>
+    <!-- PORTFOLIO SECTION -->
+    <div id="dg">
+        <div class="container">
+            <div class="row centered">
+                <h4>LATEST WORKS</h4>
                 <br>
-                <!-- ACCORDION -->
-                <div class="accordion ac" id="accordion2">
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseOne">
-                                {{ trans('adminlte_lang::message.design') }}
-                            </a>
-                        </div><!-- /accordion-heading -->
-                        <div id="collapseOne" class="accordion-body collapse in">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
-                    <br>
-
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseTwo">
-                                {{ trans('adminlte_lang::message.retina') }}
-                            </a>
-                        </div>
-                        <div id="collapseTwo" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
-                    <br>
-
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseThree">
-                                {{ trans('adminlte_lang::message.support') }}
-                            </a>
-                        </div>
-                        <div id="collapseThree" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
-                    <br>
-
-                    <div class="accordion-group">
-                        <div class="accordion-heading">
-                            <a class="accordion-toggle" data-toggle="collapse" data-parent="#accordion2" href="#collapseFour">
-                                {{ trans('adminlte_lang::message.responsive') }}
-                            </a>
-                        </div>
-                        <div id="collapseFour" class="accordion-body collapse">
-                            <div class="accordion-inner">
-                                <p>It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</p>
-                            </div><!-- /accordion-inner -->
-                        </div><!-- /collapse -->
-                    </div><!-- /accordion-group -->
-                    <br>
-                </div><!-- Accordion -->
-            </div>
-        </div>
-    </div><!--/ .container -->
-</div><!--/ #features -->
-
-
-<section id="showcase" name="showcase"></section>
-<div id="showcase">
-    <div class="container">
-        <div class="row">
-            <h1 class="centered">{{ trans('adminlte_lang::message.screenshots') }}</h1>
-            <br>
-            <div class="col-lg-8 col-lg-offset-2">
-                <div id="carousel-example-generic" class="carousel slide">
-                    <!-- Indicators -->
-                    <ol class="carousel-indicators">
-                        <li data-target="#carousel-example-generic" data-slide-to="0" class="active"></li>
-                        <li data-target="#carousel-example-generic" data-slide-to="1"></li>
-                    </ol>
-
-                    <!-- Wrapper for slides -->
-                    <div class="carousel-inner">
-                        <div class="item active">
-                            <img src="{{ asset('/img/item-01.png') }}" alt="">
-                        </div>
-                        <div class="item">
-                            <img src="{{ asset('/img/item-02.png') }}" alt="">
-                        </div>
+                <div class="col-lg-4">
+                    <div class="tilt">
+                    <a href="#"><img src="{{asset('assets/img/p01.png')}}" alt=""></a>
                     </div>
                 </div>
+
+                <div class="col-lg-4">
+                    <div class="tilt">
+                    <a href="#"><img src="{{asset('assets/img/p03.png')}}" alt=""></a>
+                    </div>
+                </div>
+
+                <div class="col-lg-4">
+                    <div class="tilt">
+                    <a href="#"><img src="{{asset('assets/img/p02.png')}}" alt=""></a>
+                    </div>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- DG -->
+
+
+    <!-- FEATURE SECTION -->
+    <div class="container wb">
+        <div class="row centered">
+            <br><br>
+            <div class="col-lg-8 col-lg-offset-2">
+                <h4>WE CREATE FIRST CLASS DESIGN</h4>
+                <p>By being true to the brand we represent, we elevate the audiences’ relationship to it. Like becomes love becomes a passion. Passion becomes advocacy. And we see the brand blossom from within, creating a whole story the audience embraces. That’s when the brand can truly flex its muscles.</p>
+            <p><br/><br/></p>
             </div>
-        </div>
-        <br>
-        <br>
-        <br>
-    </div><!-- /container -->
-</div>
+            <div class="col-lg-2"></div>
+            <div class="col-lg-10 col-lg-offset-1">
+                <img class="img-responsive" src="{{asset('assets/img/munter.png')}}" alt="">
+            </div>
+        </div><!-- row -->
+    </div><!-- container -->
 
 
-<section id="contact" name="contact"></section>
-<div id="footerwrap">
-    <div class="container">
-        <div class="col-lg-5">
-            <h3>{{ trans('adminlte_lang::message.address') }}</h3>
-            <p>
-                Av. Greenville 987,<br/>
-                New York,<br/>
-                90873<br/>
-                United States
-            </p>
-        </div>
-
-        <div class="col-lg-7">
-            <h3>{{ trans('adminlte_lang::message.dropus') }}</h3>
-            <br>
-            <form role="form" action="#" method="post" enctype="plain">
-                <div class="form-group">
-                    <label for="name1">{{ trans('adminlte_lang::message.yourname') }}</label>
-                    <input type="name" name="Name" class="form-control" id="name1" placeholder="{{ trans('adminlte_lang::message.yourname') }}">
+    <div id="lg">
+        <div class="container">
+            <div class="row centered">
+                <h4>OUR AWESOME CLIENTS</h4>
+                <div class="col-lg-2 col-lg-offset-1">
+                    <img src="{{asset('assets/img/c01.gif')}}" alt="">
                 </div>
-                <div class="form-group">
-                    <label for="email1">{{ trans('adminlte_lang::message.emailaddress') }}</label>
-                    <input type="email" name="Mail" class="form-control" id="email1" placeholder="{{ trans('adminlte_lang::message.enteremail') }}">
+                <div class="col-lg-2">
+                    <img src="{{asset('assets/img/c02.gif')}}" alt="">
                 </div>
-                <div class="form-group">
-                    <label>{{ trans('adminlte_lang::message.yourtext') }}</label>
-                    <textarea class="form-control" name="Message" rows="3"></textarea>
+                <div class="col-lg-2">
+                    <img src="{{asset('assets/img/c03.gif')}}" alt="">
                 </div>
-                <br>
-                <button type="submit" class="btn btn-large btn-success">{{ trans('adminlte_lang::message.submit') }}</button>
-            </form>
+                <div class="col-lg-2">
+                    <img src="{{asset('assets/img/c04.gif')}}" alt="">
+                </div>
+                <div class="col-lg-2">
+                    <img src="{{asset('assets/img/c05.gif')}}" alt="">
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- dg -->
+
+
+    <div id="r">
+        <div class="container">
+            <div class="row centered">
+                <div class="col-lg-8 col-lg-offset-2">
+                    <h4>WE ARE STORYTELLERS. BRANDS ARE OUR SUBJECTS. DESIGN IS OUR VOICE.</h4>
+                    <p>We believe ideas come from everyone, everywhere. At BlackTie, everyone within our agency walls is a designer in their own right. And there are a few principles we believe—and we believe everyone should believe—about our design craft. These truths drive us, motivate us, and ultimately help us redefine the power of design.</p>
+                </div>
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><! -- r wrap -->
+
+
+    <!-- FOOTER -->
+    <div id="f">
+        <div class="container">
+            <div class="row centered">
+                <a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-dribbble"></i></a>
+
+            </div><!-- row -->
+        </div><!-- container -->
+    </div><!-- Footer -->
+
+
+
+    <!-- MODAL FOR CONTACT -->
+    <!-- Modal -->
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+      <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+            <h4 class="modal-title" id="myModalLabel">Request to Join</h4>
+          </div>
+          <div class="modal-body">
+                 @if ($errors->has())
+        <div class="alert alert-danger">
+            @foreach ($errors->all() as $error)
+                {{ $error }}<br>
+            @endforeach
         </div>
-    </div>
-</div>
-<div id="c">
-    <div class="container">
-        <p>
-            <a href="https://github.com/acacha/adminlte-laravel"></a><b>admin-lte-laravel</b></a>. {{ trans('adminlte_lang::message.descriptionpackage') }}.<br/>
-            <strong>Copyright &copy; 2015 <a href="http://acacha.org">Acacha.org</a>.</strong> {{ trans('adminlte_lang::message.createdby') }} <a href="http://acacha.org/sergitur">Sergi Tur Badenas</a>. {{ trans('adminlte_lang::message.seecode') }} <a href="https://github.com/acacha/adminlte-laravel">Github</a>
-            <br/>
-            AdminLTE {{ trans('adminlte_lang::message.createdby') }} Abdullah Almsaeed <a href="https://almsaeedstudio.com/">almsaeedstudio.com</a>
-            <br/>
-             Pratt Landing Page {{ trans('adminlte_lang::message.createdby') }} <a href="http://www.blacktie.co">BLACKTIE.CO</a>
-        </p>
+                @endif
+                <form class="form-horizontal" role="form" method="post" action="{{ url('/') }}">
+                 {!! csrf_field() !!}
 
-    </div>
-</div>
+                  <div class="form-group">
+                    <label  class="col-sm-4 control-label"
+                              for="email">Your Email</label>
+                    <div class="col-sm-8">
+                        <input type="email" class="form-control"
+                        name="email" placeholder="Enter your email" required />
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label"
+                          for="firstname" >First Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control"
+                            name="firstname" placeholder="Enter your first name" required/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label"
+                          for="lastname" >Last Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control"
+                            name="lastname" placeholder="Enter your last name" required/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                      <label class="col-sm-4 control-label" for="school">School</label>
+                      <div class="col-sm-8">
+                      <select class="form-control" name="school" required>
+                        <option value="" selected>Select School</option>
+                        <option value="DPS">DPS</option>
+                        <option value="DAV">DAV</option>
+                        <option value="ABC">ABC</option>
+                      </select>
+                      </div>
+                </div>
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label"
+                          for="childsfirstname" >Child's First Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control"
+                            name="childs_firstname" placeholder="Enter your child's first name" required/>
+                    </div>
+                  </div>
+                  <div class="form-group">
+                    <label class="col-sm-4 control-label"
+                          for="childslastname" >Child's Last Name</label>
+                    <div class="col-sm-8">
+                        <input type="text" class="form-control"
+                            name="childs_lastname" placeholder="Enter your child's last name" required/>
+                    </div>
+                  </div>
+                <div class="form-group">
+                      <label class="col-sm-4 control-label" for="relationship">Relationship to Child</label>
+                      <div class="col-sm-8">
+                      <select class="form-control" name="relationship_to_child" required>
+                        <option value="" selected>Select Relationship</option>
+                        <option value="Father">Father</option>
+                        <option value="Mother">Mother</option>
+                        <option value="Brother">Brother</option>
+                      </select>
+                      </div>
+                </div>
+                  <div class="form-group">
+                      <label class="col-sm-4 control-label" for="classroom">Classroom</label>
+                      <div class="col-sm-8">
+                      <select class="form-control" name="classroom" required>
+                        <option value="" selected>Select Classroom</option>
+                        <option value="Room 1">Room 1</option>
+                        <option value="Room 2">Room 2</option>
+                        <option value="Room 3">Room 3</option>
+                      </select>
+                      </div>
+                </div>
+                  <div class="form-group">
+                      <label for="note" class="col-sm-4 control-label">Note</label>
+                      <div class="col-sm-8">
+                      <textarea class="form-control" rows="4" name="note" style="resize: none;" placeholder="(Optional) Enter any information that could help your school’s Admin to identify you, e.g. the classroom your second child is in."></textarea>
+                      </div>
+                    </div>
+                  </div>
+                   <!-- Modal Footer -->
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                <button type="submit" class="btn btn-success">Submit</button>
+            </div>
+                </form>
+
+            <style type="text/css">
+            .modal-body {
+              max-height: calc(100vh - 210px);
+              overflow-y: auto;
+             }
+             </style>
 
 
-<!-- Bootstrap core JavaScript
-================================================== -->
-<!-- Placed at the end of the document so the pages load faster -->
-<script src="{{ asset('/js/bootstrap.min.js') }}" type="text/javascript"></script>
-<script>
-    $('.carousel').carousel({
-        interval: 3500
-    })
-</script>
+          </div>
+          </div>
+          </div>
+
+
+
+        </div><!-- /.modal-content -->
+      </div><!-- /.modal-dialog -->
+    </div><!-- /.modal -->
 </body>
+
+    <!-- Bootstrap core JavaScript
+    ================================================== -->
+
+    <script src="{{asset('assets/js/bootstrap.min.js')}}"></script>
+  </body>
 </html>
