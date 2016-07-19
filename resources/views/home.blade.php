@@ -1,6 +1,8 @@
+<?php $title="Dashboard"; ?>
 @extends('layouts.app')
 
 @section('htmlheader_title')
+@contentheader_title='Dashboard';
 	Home
 @endsection
 
