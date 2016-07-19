@@ -14,3 +14,5 @@
 Route::get('/', function () {
     return view('welcome');
 });
+Route::resource('/joinrequest', 'JoinRequestController');
+Route::get('/dropdown', 'JoinRequestController@categoryDropDownData');
