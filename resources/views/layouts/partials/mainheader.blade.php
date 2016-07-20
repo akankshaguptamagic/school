@@ -126,7 +126,7 @@
                             <li class="user-header">
                                 <img src="{{asset('/img/user2-160x160.jpg')}}" class="img-circle" alt="User Image" />
                                 <p>
-                                    {{ Auth::user()->name }}
+                                    {{ Auth::user()->firstname.' '.Auth::user()->lastname }}
                                     <small>{{ trans('adminlte_lang::message.login') }} Nov. 2012</small>
                                 </p>
                             </li>

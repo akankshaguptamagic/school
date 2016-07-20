@@ -9,6 +9,9 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests;
 use Illuminate\Http\Request;
+use App\Events;
+use App\User;
+use Auth;
 
 /**
  * Class HomeController
@@ -33,6 +36,9 @@ class HomeController extends Controller
      */
     public function index()
     {
-        return view('home');
+      $child_info=User::find(Auth::user()->id)->child;
+      $events=Events::where('school_id',$child_info->sch_id)->get();
+      return view('home')->with('content',json_encode($events));
+
     }
 }
