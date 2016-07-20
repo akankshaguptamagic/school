@@ -18,7 +18,7 @@
         <h3 class="control-sidebar-heading">Group Chat</h3>
         <?php $groups=session('groups'); ?>
         @foreach($groups as $group)
-      <li><a href="">Group-> {{$group->group_name}}</a></li>
+      <li><a href="{{url('/groupchat')}}/{{$group->id}}">Group-> {{$group->group_name}}</a></li>
       @endforeach
         </div><!-- /.tab-pane -->
         <!-- Stats tab content -->

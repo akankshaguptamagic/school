@@ -16,3 +16,11 @@ Route::get('/', function () {
 });
 Route::resource('/joinrequest', 'JoinRequestController');
 Route::get('/dropdown', 'JoinRequestController@categoryDropDownData');
+Route::Auth();
+
+// For group chat starts here
+Route::get('/groupchat/{id}','GroupChatController@index');
+
+Route::get('/groupchatsend','GroupChatController@write');
+
+//group chat ends here
