@@ -40,6 +40,7 @@
 <script src="{{asset('plugins/daterangepicker/moment.min.js')}}" ></script>
 <script src="{{asset('plugins/fullCalendar/fullCalendar.min.js')}}" ></script>
 
+
 <script>
 
 $(function () {

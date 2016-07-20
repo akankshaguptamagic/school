@@ -12,6 +12,8 @@ use Illuminate\Http\Request;
 use App\Events;
 use App\User;
 use Auth;
+use App\TeachersRooms;
+use App\SocialGroups;
 
 /**
  * Class HomeController
@@ -34,10 +36,21 @@ class HomeController extends Controller
      *
      * @return Response
      */
-    public function index()
+    public function index(Request $request)
     {
+      // for getting all data of child info table for getting events and teachers rooms and groups
       $child_info=User::find(Auth::user()->id)->child;
+      //event data
       $events=Events::where('school_id',$child_info->sch_id)->get();
+      //teachers rooms data
+      $rooms=TeachersRooms::where('school_id',$child_info->sch_id)->get();
+      // session
+      $request->session()->put('class_rooms',$rooms);
+      //groups list that logged in user subscried to
+      $groups=SocialGroups::where('sch_id',$child_info->sch_id)->get();
+      // session
+      $request->session()->put('groups',$groups);
+      
       return view('home')->with('content',json_encode($events));
 
     }
