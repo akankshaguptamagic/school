@@ -23,4 +23,13 @@ class User extends Authenticatable
       protected $hidden = [
           'password', 'remember_token',
       ];
+
+      /*
+      *  relation from child info table
+      */
+      public function child()
+      {
+          return $this->hasOne(ChildInfo::class,'users_id','id');
+      }
+
   }
