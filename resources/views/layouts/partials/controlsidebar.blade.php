@@ -9,34 +9,17 @@
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane active" id="control-sidebar-home-tab">
-            <h3 class="control-sidebar-heading">{{ trans('adminlte_lang::message.recentactivity') }}</h3>
-            <ul class='control-sidebar-menu'>
-                <li>
-                    <a href='javascript::;'>
-                        <i class="menu-icon fa fa-birthday-cake bg-red"></i>
-                        <div class="menu-info">
-                            <h4 class="control-sidebar-subheading">{{ trans('adminlte_lang::message.birthday') }}</h4>
-                            <p>{{ trans('adminlte_lang::message.birthdaydate') }}</p>
-                        </div>
-                    </a>
-                </li>
-            </ul><!-- /.control-sidebar-menu -->
+          <h3 class="control-sidebar-heading">Class Room Chat</h3>
+          <?php $classes=session('class_rooms'); ?>
+          @foreach($classes as $class)
+        <li><a href="">ClassRoom {{$class->room_no}} -> {{$class->teachers_name}}</a></li>
+        @endforeach
 
-            <h3 class="control-sidebar-heading">{{ trans('adminlte_lang::message.progress') }}</h3>
-            <ul class='control-sidebar-menu'>
-                <li>
-                    <a href='javascript::;'>
-                        <h4 class="control-sidebar-subheading">
-                            {{ trans('adminlte_lang::message.customtemplate') }}
-                            <span class="label label-danger pull-right">70%</span>
-                        </h4>
-                        <div class="progress progress-xxs">
-                            <div class="progress-bar progress-bar-danger" style="width: 70%"></div>
-                        </div>
-                    </a>
-                </li>
-            </ul><!-- /.control-sidebar-menu -->
-
+        <h3 class="control-sidebar-heading">Group Chat</h3>
+        <?php $groups=session('groups'); ?>
+        @foreach($groups as $group)
+      <li><a href="{{url('/groupchat')}}/{{$group->id}}">Group-> {{$group->group_name}}</a></li>
+      @endforeach
         </div><!-- /.tab-pane -->
         <!-- Stats tab content -->
         <div class="tab-pane" id="control-sidebar-stats-tab">{{ trans('adminlte_lang::message.statstab') }}</div><!-- /.tab-pane -->
@@ -56,7 +39,7 @@
             </form>
         </div><!-- /.tab-pane -->
     </div>
-</aside><!-- /.control-sidebar
+</aside><!-- /.control-sidebar-->
 
 <!-- Add the sidebar's background. This div must be placed
        immediately after the control sidebar -->

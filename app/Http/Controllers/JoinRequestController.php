@@ -11,6 +11,7 @@ use App\School;
 use App\TeachersRoom;
 use App\ParentDetail;
 use App\JoinRequest;
+use DB;
 //use Input;
 class JoinRequestController extends Controller
 {
@@ -43,56 +44,17 @@ class JoinRequestController extends Controller
      */
     public function store(Request $request)
     {
-        //$validator = Validator::make(Input::all(), JoinRequest::$rules);
-//		if ($validator->fails()) 
-//		{
-//			// get the error messages from the validator
-//			$messages = $validator->messages();
-//			// redirect our user back to the form with the errors from the validator
-//			return Redirect::back()->withErrors($validator);
-//		}
-		///////////////Here is the code to match request record to actual school database record and check condition to verify user...If user request record is completely match to school record then user receive email//////
-		$sch_id=ParentDetail::where('sch_id', '=', $request->school)->get();
+       
+	 $is_sch = DB::table('parent_details')->where('sch_id',Input::get('school'))->get();
 		$flag=0;
-		foreach($sch_id as $sch)
+		foreach($is_sch as $p_info)
 		{
-		$name=$request->firstname.' '.$request->lastname;
-		$child_name=$request->childs_firstname.' '.$request->childs_lastname;
-		$detail=ParentDetail::where('email',"'$request->email'")->get()->count();
-				//print_r($detail);
-				//$c=count($detail);
-				//echo $c;
-			//$c=count($detail);
-			//echo $c;
-				
-			if(!$detail)
-			{
-			echo "kk";
-				$flag=1;
-				break;
-			}
+			$is_info = DB::table('parent_details')->where([['email',Input::get('email')],['name',Input::get('firstname')." ".Input::get('lastname')],['child_name',Input::get('childs_firstname').Input::get('childs_lastname')],['classroom',Input::get('classroom')],['mobile_no',Input::get('mobile_no')],['sch_id',$p_info->sch_id]])->get();
+			echo Input::get('school');
 			
 		}
-		echo "<br>";	
-		echo $request->email;
-		echo "<br>";
-		echo $request->firstname." ".$request->lastname;
-		echo "<br>";
-		echo $request->childs_firstname." ".$request->childs_lastname;
-		echo "<br>";
-		echo $request->classroom;
-		echo "<br>";
-		echo $request->mobile_no;
-		echo "<br>";
-		echo $sch->sch_id;
-		echo "<br>";
-		echo $flag;
-		// $detail=ParentDetail::find(array('email' => $request->email));
-		if($flag)
 		
-		  echo "exist";
-	 	else
-			echo "not exist";
+		
 		
     }
 
