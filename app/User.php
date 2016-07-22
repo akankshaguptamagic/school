@@ -32,4 +32,8 @@ class User extends Authenticatable
           return $this->hasOne(ChildInfo::class,'users_id','id');
       }
 
+      
+
+
+
   }

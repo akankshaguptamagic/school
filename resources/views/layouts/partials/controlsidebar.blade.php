@@ -15,7 +15,7 @@
         <li><a href="">ClassRoom {{$class->room_no}} -> {{$class->teachers_name}}</a></li>
         @endforeach
 
-
+      
         </div><!-- /.tab-pane -->
         <!-- Stats tab content -->
         <div class="tab-pane" id="control-sidebar-stats-tab">{{ trans('adminlte_lang::message.statstab') }}</div><!-- /.tab-pane -->
