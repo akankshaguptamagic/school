@@ -15,11 +15,7 @@
         <li><a href="">ClassRoom {{$class->room_no}} -> {{$class->teachers_name}}</a></li>
         @endforeach
 
-        <h3 class="control-sidebar-heading">Group Chat</h3>
-        <?php $groups=session('groups'); ?>
-        @foreach($groups as $group)
-      <li><a href="{{url('/groupchat')}}/{{$group->id}}">Group-> {{$group->group_name}}</a></li>
-      @endforeach
+
         </div><!-- /.tab-pane -->
         <!-- Stats tab content -->
         <div class="tab-pane" id="control-sidebar-stats-tab">{{ trans('adminlte_lang::message.statstab') }}</div><!-- /.tab-pane -->
