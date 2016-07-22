@@ -4,7 +4,11 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
+<<<<<<< HEAD
     "hash": "3910cff1e436049ef71e6c510b3aa5e4",
+=======
+    "hash": "ebece59c8a62738ab6c986cf6c0552d8",
+>>>>>>> cd7a7b88342ba08701e62bf7e1a28ac1ff7cc876
     "content-hash": "370b17c4af715c344818ca6e26edb50f",
     "packages": [
         {
@@ -360,6 +364,7 @@
         },
         {
             "name": "laravel/framework",
+<<<<<<< HEAD
             "version": "v5.2.40",
             "source": {
                 "type": "git",
@@ -370,6 +375,18 @@
                 "type": "zip",
                 "url": "https://api.github.com/repos/laravel/framework/zipball/6195211140ed0881e89d79a296f893abc56987be",
                 "reference": "6195211140ed0881e89d79a296f893abc56987be",
+=======
+            "version": "5.2.41",
+            "source": {
+                "type": "git",
+                "url": "https://github.com/laravel/framework.git",
+                "reference": "29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2"
+            },
+            "dist": {
+                "type": "zip",
+                "url": "https://api.github.com/repos/laravel/framework/zipball/29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2",
+                "reference": "29ba2e310cfeb42ab6545bcd81ff4c2ec1f6b5c2",
+>>>>>>> cd7a7b88342ba08701e62bf7e1a28ac1ff7cc876
                 "shasum": ""
             },
             "require": {
@@ -486,7 +503,11 @@
                 "framework",
                 "laravel"
             ],
+<<<<<<< HEAD
             "time": "2016-07-19 19:46:25"
+=======
+            "time": "2016-07-20 13:13:06"
+>>>>>>> cd7a7b88342ba08701e62bf7e1a28ac1ff7cc876
         },
         {
             "name": "laravelcollective/html",
