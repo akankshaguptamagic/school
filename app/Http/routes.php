@@ -18,6 +18,13 @@ Route::resource('/joinrequest', 'JoinRequestController');
 Route::get('/dropdown', 'JoinRequestController@categoryDropDownData');
 Route::Auth();
 
+// for chat starts here
+Route::get('/chat/{id}','ChatController@chat');
+Route::post('/chatsend','ChatController@write');
+Route::get('/chatreceive/{id}','ChatController@receive');
+
+//for chat ends here
+
 // For group chat starts here
 // Route::get('/groupchat/{id}','GroupChatController@index');
 //

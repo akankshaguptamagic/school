@@ -10,12 +10,13 @@
         <!-- Home tab content -->
         <div class="tab-pane active" id="control-sidebar-home-tab">
           <h3 class="control-sidebar-heading">Class Room Chat</h3>
-          <?php $classes=session('class_rooms'); ?>
+          <?php $classes=session('chats');
+        //  print_r($classes);exit;
+        ?>
           @foreach($classes as $class)
-        <li><a href="">ClassRoom {{$class->room_no}} -> {{$class->teachers_name}}</a></li>
+         <li><a href="{{url('/chat')}}/{{$class['id']}}">{{$class['name']}}</a></li>
         @endforeach
 
-      
         </div><!-- /.tab-pane -->
         <!-- Stats tab content -->
         <div class="tab-pane" id="control-sidebar-stats-tab">{{ trans('adminlte_lang::message.statstab') }}</div><!-- /.tab-pane -->
