@@ -25,13 +25,10 @@ class ChatController extends Controller
      $username=Auth::user()->firstname.' '.Auth::user()->lastname;
      $receiver_id=$request->receiver_id;
      $receiver_name=User::find($receiver_id);
-  //  echo  $receiver_name->lastname;
-    // print_r($receiver_name);exit;
+
      $f_name=$receiver_name->firstname;
      $l_name=$receiver_name->lastname;
      $r_name=$f_name.' '.$l_name;
-    // print_r($name);
-     //echo $r_name;exit;
 
      $filepath='chat/chat/'.$receiver_id.'/'.$filename;
      $dirpath='chat/chat/'.$receiver_id;

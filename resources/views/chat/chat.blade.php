@@ -89,7 +89,7 @@ var segment={{ Request::segment(2) }};
 											if(all.receiver_id== segment ){
 												//console.log('hii');
 											if(all.side==='RIGHT'){
-												$("#ChatMessages").append('<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">'+all.sender_name+'</span><span class="direct-chat-timestamp pull-left">'+all.time+'</span></div><img class="direct-chat-img" src="{{asset("img/user4-128x128.jpg")}}" alt="message user image"><div class="direct-chat-text">'+all.msg+'</div></div></div>');
+												$("#ChatMessages").append('<div class="direct-chat-msg right"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-right">'+all.sender_name+'</span><span class="direct-chat-timestamp pull-left">'+all.time+'</span></div><img class="direct-chat-img" src="{{asset("img/user4-128x128.jpg")}}" alt="message user image"><div class="direct-chat-text">'+all.msg+'</div>&#10003</div></div>');
 											}
 											if(all.side==='LEFT'){
 												 $("#ChatMessages").append('<div class="direct-chat-msg"><div class="direct-chat-info clearfix"><span class="direct-chat-name pull-left">'+all.sender_name+'</span><span class="direct-chat-timestamp pull-right">'+all.time+'</span></div><img class="direct-chat-img" src="{{asset("img/user2-160x160.jpg")}}" alt="message user image"><div class="direct-chat-text">'+all.msg+'</div></div>');
