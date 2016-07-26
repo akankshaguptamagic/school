@@ -38,10 +38,10 @@
               <a href="#"  data-toggle="control-sidebar"><i class='fa fa-comments-o'></i> <span>Chat</span></a></li>
               @role('Admin')
              <li><a href="{{ route('users.index') }}"><i class='fa fa-users'></i>Users</a></li>
-             <li><a href="{{ route('roles.index') }}"><i class='fa fa-comments-o'></i>Roles</a></li>
-             <li><a href="{{ route('itemCRUD2.index') }}"><i class='fa fa-comments-o'></i>Items</a></li>
+             <li><a href="{{ route('roles.index') }}"><i class='fa fa-code-fork'></i>Roles</a></li>
+             <li><a href="{{ route('itemCRUD2.index') }}"><i class='fa fa-edit'></i>Items</a></li>
              @endrole
-            
+
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
