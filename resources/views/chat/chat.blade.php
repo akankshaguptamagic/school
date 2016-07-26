@@ -33,7 +33,7 @@
     <!-- Contacts are loaded here -->
     <div class="direct-chat-contacts">
       <ul class="contacts-list">
-        <li>
+        <!-- <li>
           <a href="#">
             <img class="contacts-list-img" src="{{asset('img/user4-128x128.jpg')}}" alt="Contact Avatar">
             <div class="contacts-list-info">
@@ -42,9 +42,9 @@
                 <small class="contacts-list-date pull-right">2/28/2015</small>
               </span>
               <span class="contacts-list-msg">How have you been?.</span>
-            </div><!-- /.contacts-list-info -->
+            </div>
           </a>
-        </li><!-- End Contact Item -->
+        </li> -->
 
       </ul><!-- /.contatcts-list -->
     </div><!-- /.direct-chat-pane -->
@@ -97,8 +97,10 @@ var segment={{ Request::segment(2) }};
 										}
 
 											});
-											 //var all=jQuery.parseJSON( data );
-										  //console.log(res);
+											var wtf    = $('#ChatMessages');
+										 var height = wtf[0].scrollHeight;
+										 wtf.scrollTop(height)
+
 										 }
 									   });
                 },500);
@@ -138,5 +140,6 @@ $('#chat').on('submit',function(e){
 
 
 </script>
+
 
 @endsection
