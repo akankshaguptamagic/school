@@ -9,7 +9,7 @@
     <div class="tab-content">
         <!-- Home tab content -->
         <div class="tab-pane active" id="control-sidebar-home-tab">
-          <h3 class="control-sidebar-heading">Class Room Chat</h3>
+          <h3 class="control-sidebar-heading">Chat</h3>
           <?php $classes=session('chats');
         //  print_r($classes);exit;
         ?>
