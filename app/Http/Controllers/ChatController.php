@@ -70,7 +70,7 @@ class ChatController extends Controller
        $sender_array = array("time" =>date('h:i:s A'), 'sender_id' =>"$send_id", 'receiver_id' =>"$receiver_id",
        "sender_name"=>Auth::user()->firstname.' '.Auth::user()->lastname,'receiver_name'=>"$r_name", 'msg' =>"$request->text","side"=>'RIGHT');
 
-       $receiver_array = array("time" =>date('h:i:s A'), 'sender_id' =>"$send_id", 'receiver_id' =>$receiver_id,
+       $receiver_array = array("time" =>date('h:i:s A'), 'sender_id' =>"$receiver_id", 'receiver_id' =>"$send_id",
        "sender_name"=>Auth::user()->firstname.' '.Auth::user()->lastname,'receiver_name'=>"$r_name", 'msg' =>"$request->text","side"=>'LEFT');
 
     //encoding the PHP array
