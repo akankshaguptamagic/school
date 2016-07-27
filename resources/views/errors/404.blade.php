@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+<?php $title="Not Found"; ?>
 @section('htmlheader_title')
     {{ trans('adminlte_lang::message.pagenotfound') }}
 @endsection

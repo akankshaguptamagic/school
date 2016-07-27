@@ -11,6 +11,14 @@
         <div class="tab-pane active" id="control-sidebar-home-tab">
           <h3 class="control-sidebar-heading">Class Room Chat</h3>
          
+
+          <?php $classes=session('chats');
+        //  print_r($classes);exit;
+        ?>
+          @foreach($classes as $class)
+         <li><a href="{{url('/chat')}}/{{$class['id']}}">{{$class['name']}}</a></li>
+        @endforeach
+
         </div><!-- /.tab-pane -->
         <!-- Stats tab content -->
         <div class="tab-pane" id="control-sidebar-stats-tab">{{ trans('adminlte_lang::message.statstab') }}</div><!-- /.tab-pane -->

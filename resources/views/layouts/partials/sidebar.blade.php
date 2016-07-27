@@ -36,13 +36,12 @@
             <li class="active"><a href="{{ url('home') }}"><i class='fa fa-home'></i> <span>{{ trans('adminlte_lang::message.home') }}</span></a></li>
             <li>
               <a href="#"  data-toggle="control-sidebar"><i class='fa fa-comments-o'></i> <span>Chat</span></a></li>
-            <li class="treeview">
-                <a href="#"><i class='fa fa-link'></i> <span>{{ trans('adminlte_lang::message.multilevel') }}</span> <i class="fa fa-angle-left pull-right"></i></a>
-                <ul class="treeview-menu">
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                    <li><a href="#">{{ trans('adminlte_lang::message.linklevel2') }}</a></li>
-                </ul>
-            </li>
+              @role('Admin')
+             <li><a href="{{ route('users.index') }}"><i class='fa fa-users'></i>Users</a></li>
+             <li><a href="{{ route('roles.index') }}"><i class='fa fa-code-fork'></i>Roles</a></li>
+             <li><a href="{{ route('itemCRUD2.index') }}"><i class='fa fa-edit'></i>Items</a></li>
+             @endrole
+
         </ul><!-- /.sidebar-menu -->
     </section>
     <!-- /.sidebar -->
