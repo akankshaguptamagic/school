@@ -12,6 +12,8 @@ use App\TeachersRoom;
 use App\ParentDetail;
 use App\JoinRequest;
 use DB;
+use Session;
+use Mail;
 //use Input;
 class JoinRequestController extends Controller
 {
@@ -44,16 +46,39 @@ class JoinRequestController extends Controller
      */
     public function store(Request $request)
     {
-       
-	 $is_sch = DB::table('parent_details')->where('sch_id',Input::get('school'))->get();
-		$flag=0;
-		foreach($is_sch as $p_info)
-		{
-			$is_info = DB::table('parent_details')->where([['email',Input::get('email')],['name',Input::get('firstname')." ".Input::get('lastname')],['child_name',Input::get('childs_firstname').Input::get('childs_lastname')],['classroom',Input::get('classroom')],['mobile_no',Input::get('mobile_no')],['sch_id',$p_info->sch_id]])->get();
-			echo Input::get('school');
+      $is_info = DB::table('parent_details')->where([['email',Input::get('email')],['name',Input::get('firstname')." ".Input::get('lastname')],['child_name',Input::get('childs_firstname')." ".Input::get('childs_lastname')],['classroom',Input::get('classroom')],['mobile_no',Input::get('mobile_no')],['sch_id',Input::get('school')]])->get();
 			
-		}
+		if($is_info)
+		{
+		  $data = new JoinRequest;
+		  $qry=DB::table('schools')->select('school_names')->where('id',Input::get('school'))->first();
+		  $data->email = Input::get('email');
+		  $data->firstname = Input::get('firstname');
+		  $data->lastname = Input::get('lastname');
+		  
+		  $data->school = $qry->school_names;
+	      $data->childs_firstname = Input::get('childs_firstname');
+		  $data->childs_lastname = Input::get('childs_lastname');
+		  $data->relationship_to_child = Input::get('relationship_to_child');
+		  $data->classroom = Input::get('classroom');
+		  $data->mobile_no = Input::get('mobile_no');
+		  $data->note = Input::get('note');
+		  $confirmation_code = str_random(30);
+		  $data->email_confirmation_code=$confirmation_code;
+		  $data->save();
 		
+		  Mail::send('emails.verify', compact('confirmation_code'), function($message) {
+	 	   $message->to(Input::get('email'), Input::get('firstname'))->subject('Verify your email address');
+		  });
+		}
+		else
+		{
+			Session::flash('message', 'Sorry Your details are not matched with school!!!');
+			return Redirect::back();
+		}	
+		
+		Session::flash('message', 'Request Sent Successfully..Please Check Email To Process Further!!!!');
+			 return Redirect::back();
 		
 		
     }
@@ -116,4 +141,29 @@ class JoinRequestController extends Controller
     {
         //
     }
+	
+	 public function confirm($confirmation_code)
+    	 {
+			if( ! $confirmation_code)
+			{
+				return view('auth.login');
+			}
+	
+			
+			$user = JoinRequest::where('email_confirmation_code', $confirmation_code)->first();
+			
+			if ( ! $user)
+			{
+				return view('auth.login');
+			}
+			
+		//	$user->email_confirmed = 1;
+			//$user->email_confirmation_code = null;
+			//$user->save();
+			
+			Session::flash('message', 'Thanks For Verifying Your Email Address!!!!');
+			return view('auth.register')->with('user',$user);
+		
+		
+  	   }
 }

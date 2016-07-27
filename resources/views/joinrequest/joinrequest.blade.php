@@ -1,5 +1,9 @@
-<?php $page_title='Request To Join' ?>
+<?php $title="Request To Join"; ?>
 @extends('layouts.loginlayout')
+
+@section('contentheader_title')
+	Request To Join
+@endsection
 
 @section('content')
 

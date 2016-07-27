@@ -16,8 +16,12 @@ Route::get('/', function () {
 });
 Route::resource('/joinrequest', 'JoinRequestController');
 Route::get('/dropdown', 'JoinRequestController@categoryDropDownData');
-Route::Auth();
-
+//Route::Auth();
+Route::get('/register/verify/{confirmationCode}', [
+    'as' => 'confirmation_path',
+    'uses' => 'JoinRequestController@confirm'
+]);
+Route::resource('/register', 'RegistrationController');
 // For group chat starts here
 // Route::get('/groupchat/{id}','GroupChatController@index');
 //
